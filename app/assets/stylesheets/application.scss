@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+.no-decoration {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.collapsable-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
