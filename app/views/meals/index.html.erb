@@ -1,0 +1,15 @@
+<% meals.each do |meal| %>
+  <div class='d-flex margin-bottom-50'>
+    <div>
+      <img class='rounded float-left' src='https://via.placeholder.com/400x300'>
+    </div>
+    <div>
+      <h1><%= link_to meal.name, meal, class: 'no-decoration' %></h1>
+      <h3>
+        <span><%= l(meal.eaten_at.localtime, format: :short) %></span>
+        <span>/</span>
+        <span><%= meal.meal_of_day %></span>
+      </h3>
+    </div>
+  </div>
+<% end %>

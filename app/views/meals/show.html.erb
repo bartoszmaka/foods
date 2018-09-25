@@ -1,0 +1,38 @@
+<div class='d-flex flex-nowrap'>
+  <h1 class='p-2 w-100'><%= meal.name %></h1>
+  <span class='p-2 flex-shrink-1'>
+    <%= link_to 'edit', edit_meal_path(meal)%>
+  </span>
+</div>
+<div class='row' style="background-color: red">
+  <img class='rounded float-left' src='https://via.placeholder.com/600x400'>
+  <div>
+    <strong>Meal summary</strong>
+    <pre>
+      <span><%= t('meal.calories') %></span>
+      <span><%= meal.calories %></span>
+      <span><%= t('meal.carbohydrates') %></span>
+      <span><%= meal.carbohydrates %></span>
+      <span><%= t('meal.proteins') %></span>
+      <span><%= meal.proteins %></span>
+      <span><%= t('meal.fats') %></span>
+      <span><%= meal.fats %></span>
+    </pre>
+  </div>
+</div>
+
+<h2>Products</h2>
+<div class='row' style="border: solid red 3px">
+  <div class='collapsable-list'>
+    <% meal.products.each do |product| %>
+      <div style="background-color: <%= random_hex_color %>">
+        <%= link_to 'edit', edit_meal_product_path(meal, product) %>
+        <h3><%= product.name %></h3>
+        <%= render 'shared/product_table',
+          product: product,
+          nutrition_table: product.nutrition_table
+        %>
+      </div>
+    <% end %>
+  </div>
+</div>

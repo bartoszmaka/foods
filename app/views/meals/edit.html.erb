@@ -1,0 +1,60 @@
+<%= form_for meal_form do |f| %>
+  <%= f.text_field :name %>
+  <div class='row' style="background-color: red">
+    <img class='rounded float-left' src='https://via.placeholder.com/600x400'>
+    <div>
+      <strong>Meal summary</strong>
+      <pre>
+        <span><%= t('meal.calories') %></span>
+        <span><%= 100 %></span>
+        <span><%= t('meal.carbohydrates') %></span>
+        <span><%= 100 %></span>
+        <span><%= t('meal.proteins') %></span>
+        <span><%= 100 %></span>
+        <span><%= t('meal.fats') %></span>
+        <span><%= 100 %></span>
+      </pre>
+    </div>
+  </div>
+
+  <h2>Products</h2>
+  <div class='row' style="border: solid red 3px">
+    <div class='collapsable-list'>
+      <% meal.products.each do |product| %>
+        <%= attributes_for :products do |product_form| %>
+          <%= product_form.text_field :name %>
+          <%= attributes_for :nutrition_table do |table_form| %>
+            <%= table_form.hidden_field :id %>
+            <table style="border: brown dotted 4px" class='table table-bordered' >
+              <tr>
+                <th></th>
+                <th>Per 100</th>
+                <th>Total</th>
+              </tr>
+              <tr>
+                <td>Calories</td>
+                <td><%= table_form.text_field :calories %></td>
+                <td><%= 100 %></td>
+              </tr>
+              <tr>
+                <td>Carbs</td>
+                <td><%= table_form.text_field :carbohydrates %></td>
+                <td><%= 100 %></td>
+              </tr>
+              <tr>
+                <td>Proteins</td>
+                <td><%= table_form.text_field :proteins %></td>
+                <td><%= 100 %></td>
+              </tr>
+              <tr>
+                <td>Fats</td>
+                <td><%= table_form.text_field :fats %></td>
+                <td><%= 100 %></td>
+              </tr>
+            </table>
+          <% end %>
+        <% end %>
+    <% end %>
+    </div>
+  </div>
+<% end %>

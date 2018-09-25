@@ -1,0 +1,20 @@
+<%= form_for [product.meal, product] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :grams %>
+  <%= f.number_field :grams %>
+
+  <%= f.fields_for :nutrition_table do |n| %>
+    <%= f.label :calories %>
+    <%= f.text_field :calories, value: product.nutrition_table.calories %>
+    <%= f.label :carbohydrates %>
+    <%= f.text_field :carbohydrates, value: product.nutrition_table.carbohydrates %>
+    <%= f.label :proteins %>
+    <%= f.text_field :proteins, value: product.nutrition_table.proteins %>
+    <%= f.label :fats %>
+    <%= f.text_field :fats, value: product.nutrition_table.fats %>
+  <% end %>
+
+  <%= f.submit :submit %>
+<% end %>
+

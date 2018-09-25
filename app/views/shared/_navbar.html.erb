@@ -1,0 +1,16 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsable-navbar"
+          aria-controls="collapsable-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          >
+    <span>click</span>
+  </button>
+  <div id="collapsable-navbar" class="collapse navbar-collapse">
+    <%= link_to 'meals', meals_path, class: 'nav-link'%>
+    <%= link_to 'new meal', new_meal_path, class: 'nav-link' %>
+  </div>
+</nav>
